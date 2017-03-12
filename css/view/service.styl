@@ -1,0 +1,67 @@
+.service
+  background-color: $colors.canvas.lighter
+  box-shadow: 0 1px 1px $colors.edge.shadow
+  color: blend($colors.text.primary, $colors.canvas.lighter)
+  margin: 3rem -1rem
+  padding: 1rem
+  position: relative
+
+.service-header
+  align-items: flex-end
+  box-shadow: 0 1px $colors.edge.divider
+  display: flex
+  margin-bottom: 0.75rem
+  padding: 0.5rem
+
+.service-status
+  align-items: center
+  align-self: center
+  color: blend($colors.text.disabled, $colors.canvas.lighter)
+  display: flex
+  font-size: 0.625rem
+  margin-left: 0.75rem
+
+  &::before
+    border: 1px solid
+    border-radius: 50%
+    box-sizing: border-box
+    content: ""
+    height: 0.75rem
+    margin-right: 0.25rem
+    width: @height
+
+  @media screen and (max-width: $breakpoints.small)
+    margin-left: 1px
+    left: 1.5rem
+    position: absolute
+    top: 0.625rem
+
+    &::before
+      content: none
+
+.service-range
+  margin-left: auto
+
+.service-message
+  border-bottom: 2px solid $colors.edge.divider
+  color: blend($colors.text.secondary, $colors.canvas.lighter)
+  line-height: 1rem
+  margin: 0.25rem 0
+  padding: 0.5rem
+
+.service
+  &[data-status="1"]
+    .service-message
+      border-bottom-color: $colors.status.success
+
+    .service-status
+      &::before
+        border-color: $colors.status.success
+
+  &[data-status="0"]
+    .service-message
+      border-bottom-color: $colors.status.danger
+
+    .service-status
+      &::before
+        border-color: $colors.status.danger

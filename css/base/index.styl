@@ -1,0 +1,32 @@
+*
+  box-sizing: border-box
+
+html
+  background-color: $colors.canvas.light
+
+body
+  color: blend($colors.text.primary, $colors.canvas.light)
+  font: 300 0.75rem/1 $font_family
+  margin: 0 auto
+  max-width: 720px
+  min-width: 360px
+  text-rendering: optimizeLegibility
+
+  for breakpoint, index in values($breakpoints)
+    if index != length(values($breakpoints)) - 1
+      @media screen and (max-width: breakpoint)
+        max-width: values($breakpoints)[index + 1] - 64px
+
+h1
+h2
+h3
+h4
+h5
+h6
+  font-size: 1rem
+  font-weight: 200
+  margin: 0
+
+p
+  margin-bottom: 0.5rem
+  margin-top: 0.5rem

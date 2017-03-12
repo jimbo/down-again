@@ -1,0 +1,31 @@
+{
+  "name": "down-again",
+  "version": "0.1.0",
+  "description": "A mockup project",
+  "author": "Jimmy Sanford <jimbo@users.noreply.github.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "node": ">=7.7.1",
+    "npm": ">=4.1.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prestart": "webpack",
+    "start": "node ./scripts/start.js"
+  },
+  "dependencies": {
+    "@cycle/dom": "^16.0.0",
+    "@cycle/http": "^13.1.0",
+    "@cycle/isolate": "^2.1.0",
+    "@cycle/run": "^3.0.0",
+    "css-loader": "^0.27.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-static": "^0.7.9",
+    "postcss-loader": "^1.3.3",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "webpack": "^2.2.1",
+    "xstream": "^10.3.0"
+  }
+}
