@@ -24,7 +24,7 @@ function AvailabilityGraph (values = [], range = '720') {
 
   return h('svg', { attrs }, [
     h('polyline', { attrs: lineAttrs })
-  ]);
+  ])
 }
 
 export default AvailabilityGraph
