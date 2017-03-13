@@ -21,11 +21,12 @@ function main (sources) {
       const { message, name, range, status, values } = state
       const attrs = { 'data-status': getStatusCode(status) }
       const title = name.split(' - ').shift()
+      const value = values[values.length - 1]
 
       return h('div.service', { key: title, attrs }, [
         h('div.service-header', [
           h('h2.service-name', title),
-          h('div.service-status', status),
+          h('div.service-status', `${status} (${value * 100}%)`),
           h('select.service-range', [
             h('option', { key: '720', attrs: { value: '720' } }, 'Last 30 Days'),
             h('option', { key: '168', attrs: { value: '168' } }, 'Last 7 Days'),
