@@ -46,3 +46,6 @@ jspm_packages/
 dist/*.css
 dist/*.js
 dist/*.map
+
+# Editor settings
+.vscode
