@@ -4,6 +4,10 @@
   "description": "A mockup project",
   "author": "Jimmy Sanford <jimbo@users.noreply.github.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimbo/down-again.git"
+  },
   "main": "index.js",
   "engines": {
     "node": ">=7.7.1",
