@@ -1,34 +1,34 @@
-import xs from 'xstream'
-import { h } from '@cycle/dom'
-import isolate from '@cycle/isolate'
+import xs from "xstream";
+import { h } from "@cycle/dom";
+import isolate from "@cycle/isolate";
 
-import Service from 'src/view/Service'
+import Service from "src/view/Service";
 
-function main (sources) {
+function main(sources) {
   const history$ = sources.http
-    .select('history')
+    .select("history")
     .flatten()
     .map(res => res.body)
-    .startWith(null)
+    .startWith(null);
 
   const dom = history$
     .map(snapshot => (snapshot || {}).services || [])
-    .map(services => services
-      .map(props => isolate(Service)({ dom: sources.dom, props: xs.of(props) }))
-    )
-    .map(services => xs
-      .combine(...services.map(({ dom }) => dom))
-      .map(children => h('div.services', children))
-    )
-    .flatten()
+    .map(services =>
+      services.map(props =>
+        isolate(Service)({ dom: sources.dom, props: xs.of(props) })))
+    .map(services =>
+      xs
+        .combine(...services.map(({ dom }) => dom))
+        .map(children => h("div.services", children)))
+    .flatten();
 
   const http = xs.of({
-    url: 'history.json',
-    category: 'history',
-    method: 'GET',
-  })
+    url: "history.json",
+    category: "history",
+    method: "GET"
+  });
 
-  return { dom, http }
+  return { dom, http };
 }
 
-export default main
+export default main;
